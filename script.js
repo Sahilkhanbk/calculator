@@ -1,26 +1,31 @@
-const buttons = document.querySelectorAll("button")
-const input = document.querySelector("#inputBox")
-const clear = document.querySelector("#clear")
-const equal = document.querySelector("#equal")
-// console.log(equal);
+// ----- grab elements -----
+const buttons = document.querySelectorAll('button');
+const input   = document.querySelector('#inputBox');  // id matches HTML
+const clean   = document.querySelector('#clear');     // <-- matches id in HTML
+const equal   = document.querySelector('#equal');
 
+// ----- build the expression -----
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
 
- buttons.forEach(btn => {
-   btn.addEventListener("click", () => {
-     let val = btn.innerText;
-     if (val === '×') val = '*';
-     if (val === '÷') val = '/';
-     input.value += val;
-   });
- });
+    // skip action keys
+    if (btn === clean || btn === equal) return;
 
+    // translate pretty symbols for eval()
+    let val = btn.innerText;
+    if (val === '×') val = '*';
+    if (val === '÷') val = '/';
 
- clear.addEventListener("click", () => {
-    input.value = ""
+    input.value += val;
+  });
+});
 
-})
+// ----- clear -----
+clean.addEventListener('click', () => {
+  input.value = '';
+});
 
-// ------- evaluate (=) -------------
+// ----- evaluate (=) -----
 equal.addEventListener('click', () => {
   try {
     input.value = eval(input.value || '0');
