@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second calcuulator</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #input {
+        padding: 20px;
+        width: 19rem;
+        height: 2rem;
+        font-size: 3rem;
+
+    }
+
+    .input-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        padding: 30px;
+        margin: 0 3px;
+        font-size: 20px;
+        background-color: rgb(241, 243, 244);
+
+    }
+
+    .buttons {
+        margin: 13px;
+    }
+
+    .calculator {
+
+        background-color: beige;
+        margin-top: 10rem;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+
+            <div class="input-box">
+                <input type="text" id="input">
+            </div>
+            <div class="buttons">
+                <button>-</button>
+                <button>*</button>
+                <button>/</button>
+                <button>+</button>
+            </div>
+            <div class="buttons">
+                <button>9</button>
+                <button>8</button>
+                <button>7</button>
+                <button>6</button>
+            </div>
+            <div class="buttons">
+                <button>5</button>
+                <button>4</button>
+                <button>3</button>
+                <button>2</button>
+            </div>
+            <div class="buttons">
+                <button>1</button>
+                <button>0</button>
+                <button class="clear">C</button>
+                <button class="equal">=</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    const buttons = document.querySelectorAll("button");
+    const clear = document.querySelector("clear");
+    const equal = document.querySelector("equal");
+    const input = document.querySelector("input");
+
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const value = btn.innerHTML
+
+            if (btn.classList.contains("clear")) {
+                input.value = "";
+            } else if (btn.classList.contains("equal")) {
+                try {
+                    input.value = eval(input.value)
+                } catch (error) {
+                    input.value = "someThing is wrong"
+                }
+            } else {
+                input.value += value;
+            }
+        })
+    })
+
+
+
+
+
+
+</script>
+
+</html>
