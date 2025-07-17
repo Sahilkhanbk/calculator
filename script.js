@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll('button');
 const input   = document.querySelector('#inputBox');  // id matches HTML
 const clean   = document.querySelector('#clear');     // <-- matches id in HTML
 const equal   = document.querySelector('#equal');
-
 // ----- build the expression -----
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
