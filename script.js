@@ -9,7 +9,6 @@ buttons.forEach(btn => {
 
     // skip action keys
     if (btn === clean || btn === equal) return;
-
     // translate pretty symbols for eval()
     let val = btn.innerText;
     if (val === '×') val = '*';
@@ -32,6 +31,7 @@ equal.addEventListener('click', () => {
     input.value = 'error';
   }
 });
+
 
 
 
