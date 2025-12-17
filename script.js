@@ -16,7 +16,6 @@ buttons.forEach(btn => {
     if (val === '÷') val = '/';
 
 
-
     
     input.value += val;
   });
@@ -35,4 +34,5 @@ equal.addEventListener('click', () => {
     input.value = 'error';
   }
 });
+
 
